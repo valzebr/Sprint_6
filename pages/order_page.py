@@ -42,3 +42,4 @@ class OrderPage(BasePage):
     @allure.step('Заполнение поля Комментарий для курьера')
     @allure.step('Клик на кнопку Назад')
     @allure.step('Клик на кнопку Заказать')
+

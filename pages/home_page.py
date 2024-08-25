@@ -43,3 +43,4 @@ class HomePageBody(BasePage):
         self.click_question_button(question_button_locator)
         text_question = self.get_text_locator(question_text_locator)
         return text_question
+

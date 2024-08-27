@@ -21,8 +21,8 @@ class BasePage:
         self.find_and_wait_element(locator).click()
 
     # Заполнение формы
-    def send_keys_to_place(self,locator):
-        self.find_and_wait_element(locator).send_keys()
+    def send_keys_to_place(self,locator,text):
+        self.find_and_wait_element(locator).send_keys(text)
 
     # Получить текст элемента
     def get_text_locator(self, locator):

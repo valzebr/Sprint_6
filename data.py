@@ -1,4 +1,4 @@
-
+from locators.order_page_locators import *
 class Urls:
     BASE_URL = 'https://qa-scooter.praktikum-services.ru/'
     DZEN_URL = 'https://dzen.ru/?yredirect=true'
@@ -7,23 +7,27 @@ class Urls:
 
 class Users:
     user_1 = {
-        1: 'Андрей',
-        2: 'Петров',
-        3: 'Москва, ул. Льва Толстого, д. 16',
-        4: 'Преображенская площадь',
-        5: '89000000001',
-        6: '29.08.2024',
-        7: 'Комментарий user_1'
+        'first_name': 'Андрей',
+        'last_name': 'Петров',
+        'address': 'Москва, ул. Льва Толстого, д. 16',
+        'metro': 'Преображенская площадь',
+        'telephone': '89000000001',
+        'calendar': '29.08.2024',
+        'rental': OrderPageLocators.five_day_rental,
+        'color': OrderPageLocators.black_color_checkbox,
+        'comment': 'Комментарий user_1'
     }
 
     user_2 = {
-        1: 'Петр',
-        2: 'Андреев',
-        3: 'Москва, ул. Арбат, д. 26',
-        4: 'Бульвар Рокоссовского',
-        5: '89000000002',
-        6: '30.08.2024',
-        7: 'Комментарий user_1'
+        'first_name': 'Петр',
+        'last_name': 'Андреев',
+        'address': 'Москва, ул. Арбат, д. 26',
+        'metro': 'Бульвар Рокоссовского',
+        'telephone': '89000000002',
+        'calendar': '30.08.2024',
+        'rental': OrderPageLocators.one_day_rental,
+        'color': OrderPageLocators.grey_color_checkbox,
+        'comment': 'Комментарий user_1'
     }
 
 class Questions:
@@ -37,3 +41,8 @@ class Questions:
             'Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.',
             'Да, обязательно. Всем самокатов! И Москве, и Московской области.'
     ]
+
+
+# Для корректного отображения аргументов в параметризированном тесте
+def pytest_make_parametrize_id(val):
+    return repr(val)

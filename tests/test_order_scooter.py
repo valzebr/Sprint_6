@@ -1,33 +1,40 @@
+import allure
+
 from conftest import *
 from multiprocessing.dummy import current_process
 import pytest
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from data import *
-from pages.base_page import BasePage
 from pages.home_page import HomePageHeader
 from pages.order_page import *
-from locators.order_page_locators import *
-import time
 
-class TestOrderPage:
+class TestOrder:
 
-    def test_correct_oder_var1(self, driver):
+    @allure.title('Проверка всего флоу позитивного сценария с двумя наборами данных')
+    @pytest.mark.parametrize("user_data",[Users.user_1, Users.user_2])
+    def test_correct_oder(self, driver, user_data):
         home_page = HomePageHeader(driver)
         order_page = OrderPage(driver)
         home_page.first_order_button_click()
-        order_page.send_first_name(Users.user_1)
-        order_page.send_last_name(Users.user_1)
-        order_page.send_address(Users.user_1)
-        order_page.send_metro(Users.user_1)
-        order_page.send_telephone(Users.user_1)
+        order_page.send_first_name(user_data)
+        order_page.send_last_name(user_data)
+        order_page.send_address(user_data)
+        order_page.send_metro(user_data)
+        order_page.send_telephone(user_data)
         order_page.click_next_button()
-        order_page.send_date(Users.user_1)
-        order_page.send_rental_period(Users.user_1)
-        order_page.send_color_scooter(Users.user_1)
-        order_page.send_comment(Users.user_1)
-        order_page.click_order_button(Users.user_1)
-        time.sleep(1)
+        order_page.send_date(user_data)
+        order_page.send_rental_period(user_data)
+        order_page.send_color_scooter(user_data)
+        order_page.send_comment(user_data)
+        order_page.click_order_button()
+        order_page.click_yes_button()
+        assert order_page.show_status_text()
 
-
-
+    @allure.title('Проверка если нажать на логотип «Самоката», попадёшь на главную страницу «Самоката»')
+    def test_correct_go_to_scooter_button(self, driver):
+        home_page = HomePageHeader(driver)
+        correct_url = Urls.BASE_URL
+        home_page.first_order_button_click()
+        home_page.scooter_logo_click()
+        assert correct_url == Urls.BASE_URL

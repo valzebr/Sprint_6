@@ -13,7 +13,7 @@ class OrderPageLocators:
 
     """Страница заказа, вторая часть"""
     when_to_bring_place = (By.XPATH, "//input[@placeholder='* Когда привезти самокат']")
-    rental_period_place = (By.XPATH, "//input[@placeholder='* Срок аренды']")
+    rental_period_place = (By.XPATH, ".//span[@class='Dropdown-arrow']")
     one_day_rental = (By.XPATH, "//div[text()='сутки']")
     two_day_rental = (By.XPATH, "//div[@class='Dropdown-option' and text()='двое суток']")
     three_day_rental = (By.XPATH, "//div[@class='Dropdown-option' and text()='трое суток']")
@@ -30,3 +30,5 @@ class OrderPageLocators:
     no_button = (By.XPATH, "//button[text()='Нет']")
     yes_button = (By.XPATH, "//button[text()='Да']")
     show_status_button = (By.XPATH, "//button[text()='Посмотреть статус']")
+    show_status_text = (By.XPATH, "(//div[contains(@class, 'Order_ModalHeader_') and text()='Заказ оформлен'])")
+

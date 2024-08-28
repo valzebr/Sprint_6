@@ -35,6 +35,6 @@ class BasePage:
 
 
     # Переход на новую вкладку браузера
-    def change_modal(self, locator):
-        modal = self.find_and_wait_element(locator)
-        self.driver.switch_to.frame(modal)
+    def go_to_new_tab(self):
+        self.driver.switch_to.window(self.driver.window_handles[1])
+

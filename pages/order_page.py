@@ -59,3 +59,14 @@ class OrderPage(BasePage):
     def click_order_button(self):
         self.click_button(OrderPageLocators.order_button)
 
+    @allure.step('Клик на кнопку подтверждения заказа')
+    def click_yes_button(self):
+        self.click_button(OrderPageLocators.yes_button)
+
+    @allure.step('Клик на кнопку отмены заказа')
+    def click_no_button(self):
+        self.click_button(OrderPageLocators.no_button)
+
+    @allure.step('Окно Заказ оформлен')
+    def show_status_text(self):
+        return self.find_and_wait_element(OrderPageLocators.show_status_text).is_displayed()

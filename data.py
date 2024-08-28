@@ -1,3 +1,4 @@
+from locators.main_page_locators import HeaderLocators, BodyLocators
 from locators.order_page_locators import *
 class Urls:
     BASE_URL = 'https://qa-scooter.praktikum-services.ru/'
@@ -7,6 +8,7 @@ class Urls:
 
 class Users:
     user_1 = {
+        'button': HeaderLocators.order_button_1,
         'first_name': 'Андрей',
         'last_name': 'Петров',
         'address': 'Москва, ул. Льва Толстого, д. 16',
@@ -19,10 +21,11 @@ class Users:
     }
 
     user_2 = {
+        'button': BodyLocators.order_button_2,
         'first_name': 'Петр',
         'last_name': 'Андреев',
         'address': 'Москва, ул. Арбат, д. 26',
-        'metro': 'Бульвар Рокоссовского',
+        'metro': 'Преображенская площадь',
         'telephone': '89000000002',
         'calendar': '30.08.2024',
         'rental': OrderPageLocators.one_day_rental,

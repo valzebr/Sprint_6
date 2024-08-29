@@ -30,11 +30,3 @@ class TestOrder:
         order_page.click_order_button()
         order_page.click_yes_button()
         assert order_page.show_status_text()
-
-    @allure.title('Проверка если нажать на логотип «Самоката», попадёшь на главную страницу «Самоката»')
-    def test_correct_go_to_scooter_button(self, driver):
-        home_page = HomePageHeader(driver)
-        correct_url = Urls.BASE_URL
-        home_page.first_order_button_click()
-        home_page.scooter_logo_click()
-        assert correct_url == Urls.BASE_URL

@@ -11,3 +11,7 @@ def driver():
     driver.set_window_size(1024, 1080)
     yield driver
     driver.quit()
+
+# Для корректного отображения аргументов в параметризированном тесте
+def pytest_make_parametrize_id(val):
+    return repr(val)

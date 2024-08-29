@@ -1,5 +1,6 @@
 from locators.main_page_locators import HeaderLocators, BodyLocators
 from locators.order_page_locators import *
+
 class Urls:
     BASE_URL = 'https://qa-scooter.praktikum-services.ru/'
     DZEN_URL = 'https://dzen.ru/?yredirect=true'
@@ -46,6 +47,4 @@ class Questions:
     ]
 
 
-# Для корректного отображения аргументов в параметризированном тесте
-def pytest_make_parametrize_id(val):
-    return repr(val)
+

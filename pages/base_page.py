@@ -10,7 +10,7 @@ class BasePage:
 
     # Получить текущий URL
     def get_url(self):
-        return self.driver.url
+        return self.driver.current_url
 
     # Ожидание отображения локатора
     def find_and_wait_element(self, locator):
@@ -35,6 +35,7 @@ class BasePage:
 
 
     # Переход на новую вкладку браузера
-    def go_to_new_tab(self):
+    def go_to_new_tab(self, url):
         self.driver.switch_to.window(self.driver.window_handles[1])
+        WebDriverWait(self.driver, 10).until(EC.url_to_be(url))
 

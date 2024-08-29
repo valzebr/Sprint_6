@@ -19,6 +19,10 @@ class HomePageHeader(BasePage):
     def first_order_button_click(self):
         self.click_button(HeaderLocators.order_button_1)
 
+    @allure.step('Проверка отображения надписи - "Учебный проект"')
+    def check_order_title(self):
+        return self.find_and_wait_element(HeaderLocators.header_page_title).is_displayed()
+
 
 
 class HomePageBody(BasePage):

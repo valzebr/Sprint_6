@@ -7,6 +7,8 @@ class HeaderLocators:
     scooter_logo = (By.CSS_SELECTOR, "[class*='Header_LogoScooter']")
     order_button_1 = (By.XPATH, "(//button[contains(@class, 'Button_') and text()='Заказать'])[1]")
     status_button = (By.CSS_SELECTOR, "[class*='Header_Link_']")
+    header_page_title = (By.XPATH, ".//div[text() = 'Учебный тренажер']")
+
 
 class BodyLocators:
     """Тело"""
